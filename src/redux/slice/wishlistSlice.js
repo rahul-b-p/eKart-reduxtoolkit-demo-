@@ -13,7 +13,9 @@ const wishlistSlice = createSlice({
         },
 
         // 2) remove from wishlist 
-        removeFromWishList :()=>{}
+        removeFromWishList :(state, actions)=>{
+            return state.filter(item=>item.id!=actions.payload)
+        }
     }
 })
 

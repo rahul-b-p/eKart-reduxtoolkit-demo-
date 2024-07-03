@@ -7,10 +7,13 @@ import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import Badge from 'react-bootstrap/Badge';
 import { Nav } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 
 
 
 function Header() {
+  const wishListArray = useSelector((state)=>state.WishlistReducer)
+  const cartArray = useSelector((state)=>state.CartReducer)
   return (
     <>
         <Navbar collapseOnSelect expand="lg" data-bs-theme="primary" bg='primary'>
@@ -21,8 +24,8 @@ function Header() {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
             <Nav className='ms-auto'>
-                <Link to={'/wishlist'}><Button className='me-5 mt-md-0 mt-5' variant="outline-light"><FontAwesomeIcon className='me-2' icon={faHeart} style={{color: "#ff0000",}} />WishList<Badge className='ms-1' bg="secondary">0</Badge></Button></Link>
-                <Link to={'/cart'}><Button className='mt-md-0 mt-3' variant="outline-light"><FontAwesomeIcon icon={faCartShopping} style={{color: "#FFD43B",}} className='me-2'/>cart<Badge className='ms-1' bg="secondary">0</Badge></Button></Link>
+                <Link to={'/wishlist'}><Button className='me-5 mt-md-0 mt-5' variant="outline-light"><FontAwesomeIcon className='me-2' icon={faHeart} style={{color: "#ff0000",}} />WishList<Badge className='ms-1' bg="secondary">{wishListArray.length}</Badge></Button></Link>
+                <Link to={'/cart'}><Button className='mt-md-0 mt-3' variant="outline-light"><FontAwesomeIcon icon={faCartShopping} style={{color: "#FFD43B",}} className='me-2'/>cart<Badge className='ms-1' bg="secondary">{cartArray.length}</Badge></Button></Link>
             </Nav>
             </Navbar.Collapse>
         </Container>
