@@ -13,12 +13,17 @@ export const cartSlice = createSlice({
         // 2) delete frrom wishlist
         removeFromCart:(state, actions)=>{
             return state.filter((item)=>item.id!=actions.payload)
+        },
+
+        // 3) checkout
+        emptyCart: (state)=>{
+            return state = []
         }
 
     }
 })
 
 
-export const {addToCart, removeFromCart} =cartSlice.actions
+export const {addToCart, removeFromCart, emptyCart} =cartSlice.actions
 
 export default cartSlice.reducer

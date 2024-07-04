@@ -16,10 +16,10 @@ function Header() {
   const cartArray = useSelector((state)=>state.CartReducer)
   return (
     <>
-        <Navbar collapseOnSelect expand="lg" data-bs-theme="primary" bg='primary'>
+        <Navbar collapseOnSelect expand="lg" data-bs-theme="primary" bg='primary' sticky='top'>
         <Container>
-            <Navbar.Brand href="/">
-            <h3 className='fw-bolder text-light'><FontAwesomeIcon icon={faCartShopping} bounce className='me-3' style={{color: "#ffffff",}}/> eKart</h3>        
+            <Navbar.Brand>
+            <Link to={'/'} style={{textDecoration:"none"}}><h3 className='fw-bolder text-light'><FontAwesomeIcon icon={faCartShopping} bounce className='me-3' style={{color: "#ffffff",}}/> eKart</h3></Link>        
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
